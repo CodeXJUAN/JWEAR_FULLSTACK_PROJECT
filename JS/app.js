@@ -27,7 +27,7 @@ db.connect((err) => {
 app.get('/', (req, res) => {
     // Consultas para las tablas
     const queryHome = 'SELECT * FROM HOME';
-    const queryTshirt = 'SELECT * FROM TSHIRT';
+    const queryTshirt = 'SELECT * FROM TSHIRTS';
     const queryHoddies = 'SELECT * FROM HODDIES';
     const querySweaters = 'SELECT * FROM SWEATERS';
 
