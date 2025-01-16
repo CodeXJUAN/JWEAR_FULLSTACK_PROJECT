@@ -30,6 +30,7 @@ app.get('/', (req, res) => {
     const queryTshirt = 'SELECT * FROM TSHIRTS';
     const queryHoddies = 'SELECT * FROM HODDIES';
     const querySweaters = 'SELECT * FROM SWEATERS';
+    const queryOtherImg = 'SELECT * FROM OTHER_IMAGES';
 
     // Ejecutar todas las consultas en paralelo
     db.query(queryHome, (errHome, resultsHome) => {
@@ -60,12 +61,21 @@ app.get('/', (req, res) => {
                         return;
                     }
 
+                    db.query(queryOtherImg, (errOtherImg, resultsOtherImg) => {
+                        if (errOtherImg) {
+                            console.error('Error al obtener datos de SWEATERS:', errOtherImg.message);
+                            res.status(500).send('Error al obtener datos de SWEATERS');
+                            return;
+                        }
+
                     // Una vez que todas las consultas hayan finalizado, pasar los resultados a la vista
                     res.render('index', {
                         home: resultsHome,
                         tshirt: resultsTshirt,
                         hoddies: resultsHoddies,
-                        sweaters: resultsSweaters
+                        sweaters: resultsSweaters,
+                        otherimgages: resultsOtherImg
+                        });
                     });
                 });
             });
