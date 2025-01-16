@@ -1,0 +1,317 @@
+
+@media only screen and (min-width: 320px) and (max-width: 812px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+      
+    body {
+        font-family: "Poppins", sans-serif;
+    }
+      
+    html {
+        scroll-behavior: smooth;
+    }
+
+       
+    p {
+        color: rgb(85, 85, 85);
+    }
+    
+    /* TRANSITION */
+    
+    a,.btn {
+        transition: all 300ms ease;
+    }
+
+    /* DESKTOP NAV */
+
+    nav, .nav-links {
+        display: flex;
+    }
+
+    #desktop-nav {
+        flex-direction: column;
+        height: 23vh;
+    }
+
+    .nav-links {
+        gap: 2.5vw;
+        list-style: none;
+        font-size: 3.75vw;
+    }
+
+    .anav:hover {
+        text-underline-offset: 1vh;
+    }
+
+    .logo {
+        width: 25vw;
+        height: auto;
+    }
+
+    /* SECTIONS */
+    
+    #home {
+        display: flex;
+        flex-direction: column;
+        height: 80vh;
+      }
+
+    .section__pic-container {
+        display: flex;
+        height: auto;
+        width: 100%;
+        margin-top: 8vh;
+        justify-content: center;
+    }
+
+    
+    .section__text p {
+        font-weight: 600;
+    }
+    
+    .section__text__p1 {
+        text-align: center;
+        margin-top: 3vh;
+    }
+    
+    .section__text__p2 {
+        font-size: 3vw;
+        margin-bottom: 1vh;
+    }
+    
+    .section__text__p3 {
+        font-size: 2vw;
+        text-align: left;
+        color: black;
+        text-decoration: none;
+    }
+    
+    .section__text__p4 {
+        text-align: center;
+    
+    }
+    
+    .title {
+        font-size: 6vw;
+        text-align: center;
+        margin-bottom: 2vh;
+    }
+    
+    .title2 {
+        font-size: 6vw;
+        margin-bottom: 2vh;
+        text-align: left;
+        margin-left: 6vw;
+    }
+    
+    .title3 {
+        font-size: 1.5vw;
+        text-align: left;
+    }
+    
+    
+    .foto1 {
+        width: 80vw;
+        height: 50vh;
+        border: 0.1vh solid black;
+        box-shadow: 1vh 1vh 1.5vh black;
+    }
+      
+    /*CATEGORIAS SECTION*/
+
+    #categorias {
+        width: auto;
+        height: 45vh;
+    }
+
+    .carrusel {
+        margin-top: 5vh;
+    }
+
+    /* CONTACTO.HTML */
+
+    .sectioncontact {
+        margin-top: 3vh;
+    }
+
+    #sectform {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: auto;
+        width: 100vw;
+        gap: 7.5vh;
+    }
+    
+
+    form {
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+    }
+    
+    #sectform form table{
+        margin: auto;
+        width: 50vw;
+        border: 0.1vh solid black;
+        border-collapse: collapse;
+        box-shadow: 0.7vh 0.7vh 1vh grey;
+    }
+    
+    #sectform form table td {
+        padding: 1vh;
+        border: 0.1vh dotted black;
+        padding-top: 1.5vh;
+        padding-left: 1.5vh;
+    }
+    
+    #sectform form table td input {
+        border: 0.1vh solid black;
+        padding: 0.5vh;
+        width: 80%;
+    }
+    
+    #sectform form table td .btnresend {
+        border: 0.1vh dashed black;
+        padding: 0.5vh;
+        background-color: white;
+    }
+    
+    
+    .tarjeta {
+        justify-content: center;
+        width: 80vw;
+        margin-top: 2vh;
+        border: 0.2vw solid black;
+        box-shadow: 1vh 1vh 1.5vh grey; 
+    }
+
+    .divtarj {
+        display: flex;
+        justify-content: center;
+        margin-left:10vw;
+    }
+
+    /*DROP ESPECIAL SECTION*/
+
+    .carrito {
+        width: 3vw;
+        margin-right: 0.75vw;
+    }
+
+    .slider-frame {
+        width: 33vw;
+        height: 15vh;
+    }
+        
+    .slider-frame ul {
+        padding: 0;
+    }
+        
+    .slider-frame li {
+        list-style: none;
+    }
+    
+    .imgdrop {
+        width: 30vw;
+        height: 12vh; 
+    }
+
+    .imgprod {
+        width: 28vw;
+        height: 12vh;  
+    }
+    
+    
+    .imgdrop2 {
+        display: none;
+        /*width: 30vw;*/
+        /*height: 12vh;*/
+        /*position: absolute;*/
+    }
+    
+    #dropespecial table{
+        width: 100%;
+        height: 80vh;
+        border-collapse: collapse;
+    }
+    
+    #dropespecial table td {
+        height: 35vh; 
+        border-radius: 5%;
+        border: 0.1vh solid black;
+        text-align: center;
+    }
+    
+    #coleccionprinc table{
+        width: 100%;
+        height: 80vh;
+        border-collapse: collapse;
+    }
+    
+    #coleccionprinc table td {
+        width: 33%;
+        height: 35vh; 
+        border-radius: 5%;
+        border: 0.1vh solid black;
+        text-align: center;
+    }
+
+    .comprarya {
+        width: 15vw;
+        height: 2vh;
+        font-size: 1vh;
+        margin-top: 2vh;
+      }
+    
+    .pbuttondiv {
+        flex-direction: column;
+        text-align: center;
+    }  
+      
+    .pbuttondiv .section__text__p3 {
+        text-align: center;
+        font-size: 2vh;
+    }
+
+    .pbuttondiv .section__text__p4 {
+        font-size: 1.5vh;
+    }  
+
+    /*HODDIES , SUDADERAS , CAMISETAS */
+    
+    .divprod {
+        width: 33vw;
+        height: 55vh;
+    }
+  
+    .h2p {
+        flex-direction: column;
+        text-align: center;
+    }  
+      
+    .h2p .section__text__p3 {
+        text-align: center;
+        font-size: 2vh;
+    }
+
+    .h2p .section__text__p4 {
+        font-size: 1.5vh;
+    }    
+    /* FOOTER SECTION */
+
+    footer {
+        height: 10vh;
+        margin-top: 3vh;
+    }
+
+    #footer-nav {
+        height: 10vh;
+    }
+    
+    footer p {
+        font-size: 1.5vh;
+        padding-bottom: 3vh;
+    }
+}

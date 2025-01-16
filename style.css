@@ -1,0 +1,354 @@
+/* GENERAL */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+  color: rgb(85, 85, 85);
+}
+
+/* TRANSITION */
+
+a,.btn {
+  transition: all 300ms ease;
+}
+
+/* DESKTOP NAV */
+
+nav, .nav-links {
+  display: flex;
+}
+
+nav {
+  justify-content: space-around;
+  align-items: center;
+  height: 17vh;
+}
+
+.nav-links {
+  gap: 2vw;
+  list-style: none;
+  font-size: 3vh;
+}
+
+.anav {
+  color: black;
+  text-decoration: none;
+  text-decoration-color: white;
+}
+
+.anav:hover {
+  color: grey;
+  text-decoration: underline;
+  text-underline-offset: 1.5vh;
+  text-decoration-color: rgb(181, 181, 181);
+}
+
+.logo {
+  width: 15vw;
+  margin-top: 3vh;
+}
+
+/* SECTIONS */
+
+section {
+  padding-top: 4vh;
+  height: 96vh;
+  box-sizing: border-box;
+  min-height: fit-content;
+}
+
+.section-container {
+  display: flex;
+}
+
+/* PROFILE SECTION */
+
+#home {
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+}
+
+.section__pic-container {
+  display: flex;
+  height: 50vh;
+  width: 50vw;
+  margin: auto 0;
+}
+
+.section__text {
+  align-self: center;
+  text-align: center;
+}
+
+.section__text p {
+  font-weight: 600;
+}
+
+.section__text__p1 {
+  text-align: center;
+  margin-top: 3vh;
+}
+
+.section__text__p2 {
+  font-size: 2vh;
+  margin-bottom: 1vh;
+}
+
+.section__text__p3 {
+  font-size: 3vh;
+  text-align: left;
+  color: black;
+  text-decoration: none;
+}
+
+.section__text__p4 {
+  text-align: center;
+
+}
+
+.title {
+  font-size: 7vh;
+  text-align: center;
+  margin-bottom: 2vh;
+}
+
+.title2 {
+  font-size: 5vh;
+  text-align: left;
+  margin: 4vh;
+}
+
+
+.foto1 {
+  border: 0.1vh solid black;
+  box-shadow: 0.1vh 0.1vh 1.5vh black;
+}
+
+/*DROP ESPECIAL SECTION*/
+#dropespecial {
+  height: 80vh;
+}
+
+.carrito {
+  width: 1vw;
+  margin-right: 0.75vw;
+}
+
+.comprarya {
+  align-self: center;
+  text-decoration: none;
+  border: solid black 1px;
+  background-color: white;
+  color: black;
+  padding: 1vh;
+  transition: .5s, color .10s;
+  -webkit-transition: .5s, color .10s;
+  -moz-transition: .5s, color .10s;
+}
+
+.comprarya:hover{
+  box-shadow: 0 0.8vh 0.8vh 0 grey,0 0.8vh 0.8vh 0 grey;
+  transform: translate(0vh,0.vh);
+  -webkit-transform: translate(0vh,0.5vh);
+  -moz-transform:translate(0vh,0.5vh);
+}
+
+.slider-frame {
+	width: 33vw;
+  height: 30vh;
+}
+
+.slider-frame ul {
+	display: flex;
+	padding: 0;
+}
+
+.slider-frame li {
+	list-style: none;
+}
+
+.imgdrop {
+	width: 15vw;
+  height: 25vh; 
+}
+
+.imgdrop2 {
+	width: 15vw;
+  height: 25vh;
+  position: absolute;
+}
+
+.pbuttondiv , .h2p {
+  display: flex;
+  justify-content: space-around ;
+  border-top: 0.1vh dashed black;
+  padding-top: 3vh;
+}
+
+#dropespecial table{
+  width: 100%;
+  height: 80vh;
+  border-collapse: collapse;
+}
+
+#dropespecial table td {
+  width: 33%;
+  height: 50vh; 
+  border-radius: 5%;
+  border: 0.1vh solid black;
+}
+
+#coleccionprinc table{
+  width: 100%;
+  height: 80vh;
+  border-collapse: collapse;
+}
+
+#coleccionprinc table td {
+  width: 33%;
+  height: 50vh; 
+  border-radius: 5%;
+  border: 0.1vh solid black;
+}
+
+/*CATEGORIAS SECTION*/
+
+.carrusel {
+  display: flex;
+  width: 33vw;
+  height: auto;
+}
+
+.carrusel img {
+  width: 33vw;
+  opacity: 0.8;
+  transition: 0.5s ease;
+  border: 0.1vh solid black;
+}
+
+.carrusel img:hover {
+  opacity: 1;
+}
+
+
+.carrusel a , .carrusel a p {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-family: "Anton SC", sans-serif;
+}
+
+.carrusel a p , hr {
+  margin-top: 2vh;
+}
+
+hr {
+  border: none;
+  border-top: 0.1vh dashed black;
+  height: 0;
+}
+
+/* CONTACTO.HTML */
+
+#sectform {
+  display: flex;
+  justify-content: space-around;
+  height: 80vh;
+  margin-top: 10vh;
+}
+
+
+form , #sectform table {
+  width: 40vw;
+  height: 60vh;
+}
+
+form {
+  padding: 2vh;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5%;
+}
+
+#sectform table{
+  border: 0.1vh solid black;
+  border-collapse: collapse;
+  box-shadow: 0.7vh 0.7vh 1vh grey;
+}
+
+#sectform table td {
+  padding: 1.5vh;
+  border: 0.1vh dotted black;
+}
+
+#sectform table td input {
+  border: 0.1vh solid black;
+  padding: 0.5vh;
+  width: 80%;
+}
+
+#sectform table td .btnresend {
+  border: 0.1vh dashed black;
+  padding: 0.5vh;
+  background-color: white;
+}
+
+
+.tarjeta {
+  width: 32vw;
+  margin-top: 2vh;
+  border: 0.2vh solid black;
+  box-shadow: 0.1vh 0.1vh 0.1vh grey;
+  
+}
+
+/*HODDIES , SUDADERAS , CAMISETAS */
+
+#sectprod table {
+  width: 100%;
+  border: 0.1vh solid black;
+  border-collapse: collapse;
+  height: 100%;
+}
+
+#sectprod table td {
+  border: 0.1vh solid black;
+}
+
+
+.divprod {
+  height: 45vh;
+}
+
+.imgprod {
+  width: 14vw;
+  height: 25vh;
+  margin: 2vh;
+}
+
+
+/* FOOTER SECTION */
+
+footer {
+  height: 26vh;
+  margin: 0 1vh;
+}
+
+footer p {
+  text-align: center;
+}
+
