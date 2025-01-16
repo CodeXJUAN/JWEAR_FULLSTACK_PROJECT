@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
 const app = express();
@@ -26,15 +25,51 @@ db.connect((err) => {
 
 // Ruta principal que recupera datos
 app.get('/', (req, res) => {
-    const query = 'SELECT * FROM HOME'; // Cambia HOME por el nombre de tu tabla
-    db.query(query, (err, results) => {
-        if (err) {
-            console.error('Error al ejecutar la consulta:', err.message);
-            res.status(500).send('Error al obtener los datos');
+    // Consultas para las tablas
+    const queryHome = 'SELECT * FROM HOME';
+    const queryTshirt = 'SELECT * FROM TSHIRT';
+    const queryHoddies = 'SELECT * FROM HODDIES';
+    const querySweaters = 'SELECT * FROM SWEATERS';
+
+    // Ejecutar todas las consultas en paralelo
+    db.query(queryHome, (errHome, resultsHome) => {
+        if (errHome) {
+            console.error('Error al obtener datos de HOME:', errHome.message);
+            res.status(500).send('Error al obtener datos de HOME');
             return;
         }
-        // Renderiza la vista ejs con los datos de la base
-        res.render('index', { productos: results });
+
+        db.query(queryTshirt, (errTshirt, resultsTshirt) => {
+            if (errTshirt) {
+                console.error('Error al obtener datos de TSHIRT:', errTshirt.message);
+                res.status(500).send('Error al obtener datos de TSHIRT');
+                return;
+            }
+
+            db.query(queryHoddies, (errHoddies, resultsHoddies) => {
+                if (errHoddies) {
+                    console.error('Error al obtener datos de HODDIES:', errHoddies.message);
+                    res.status(500).send('Error al obtener datos de HODDIES');
+                    return;
+                }
+
+                db.query(querySweaters, (errSweaters, resultsSweaters) => {
+                    if (errSweaters) {
+                        console.error('Error al obtener datos de SWEATERS:', errSweaters.message);
+                        res.status(500).send('Error al obtener datos de SWEATERS');
+                        return;
+                    }
+
+                    // Una vez que todas las consultas hayan finalizado, pasar los resultados a la vista
+                    res.render('index', {
+                        home: resultsHome,
+                        tshirt: resultsTshirt,
+                        hoddies: resultsHoddies,
+                        sweaters: resultsSweaters
+                    });
+                });
+            });
+        });
     });
 });
 
