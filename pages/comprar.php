@@ -1,3 +1,16 @@
+<?php
+include('../db.php');
+
+// Consultar los datos de las imágenes
+$sql_otherimg = "SELECT * FROM OTHER_IMAGES";
+
+$result_otherimg = $conn->query($sql_otherimg);
+
+$images_otherimg = $result_otherimg->fetch_all(MYSQLI_ASSOC);
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,12 +20,12 @@
         <title>JWEAR - Hoddies</title>
         <link rel="stylesheet" href="/CSS/style.css" />
         <link rel="stylesheet" href="/CSS/mediaqueries.css" />
-        <link rel="shortcut icon" href="/assets/LOGOS/1.png" type="image/x-icon">
+        <link rel="shortcut icon" href="<?php echo $images_otherimg[0]['IMAGEN']; ?>" type="image/x-icon">
     </head>
     <body>
     <header>
         <nav id="desktop-nav">
-            <img class="logo" src="./assets/LOGOS/logo-svg.svg" />
+            <img class="logo" src="<?php echo $images_otherimg[0]['IMAGEN']; ?>" />
             <div>
                 <ul class="nav-links">
                     <li><a class="anav" href="/index.php">Inicio</a></li>
@@ -24,7 +37,11 @@
             </div>
         </nav>    
     </header>   
-
+    <main>
+        <section>
+            
+        </section>
+    </main>
     <footer>
         <nav>
             <div class="nav-links-container">
