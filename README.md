@@ -11,5 +11,5 @@ This is a fictional clothing brand store, and a full-stack project.
 - HTML (Frontend)
 - CSS (Frontend)
 - JavaScript (Frontend)
-- ExpressJS(Backend)
+- PHP(Backend)
 - MySQL(DataBase)
