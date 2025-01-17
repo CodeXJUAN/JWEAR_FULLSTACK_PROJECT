@@ -15,7 +15,7 @@
             <img class="logo" src="./assets/LOGOS/logo-svg.svg" />
             <div>
                 <ul class="nav-links">
-                    <li><a class="anav" href="./index.php">Inicio</a></li>
+                    <li><a class="anav" href="/index.php">Inicio</a></li>
                     <li><a class="anav" href="/pages/hoddie.php">Hoddies</a></li>
                     <li><a class="anav" href="/pages/sudadera.php">Sudaderas</a></li>
                     <li><a class="anav" href="/pages/cami.php">Camisetas</a></li>
@@ -214,7 +214,7 @@
         <nav id="footer-nav">
             <div class="nav-links-container">
                 <ul class="nav-links">
-                    <li><a class="anav" href="./index.php">Inicio</a></li>
+                    <li><a class="anav" href="/index.php">Inicio</a></li>
                     <li><a class="anav" href="/pages/hoddie.php">Hoddies</a></li>
                     <li><a class="anav" href="/pages/sudadera.php">Sudaderas</a></li>
                     <li><a class="anav" href="/pages/cami.php">Camisetas</a></li>

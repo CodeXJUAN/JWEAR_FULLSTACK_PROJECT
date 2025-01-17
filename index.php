@@ -53,11 +53,11 @@ function renderProduct($product) {
     <nav id="desktop-nav">
         <img src="<?php echo $images_otherimg[0]['IMAGEN']; ?>" class="logo" />
         <ul class="nav-links">
-            <li><a class="anav" href="./index.php">Inicio</a></li>
-            <li><a class="anav" href="/pages/hoddie.php">Hoddies</a></li>
-            <li><a class="anav" href="/pages/sudadera.php">Sudaderas</a></li>
-            <li><a class="anav" href="/pages/cami.php">Camisetas</a></li>
-            <li><a class="anav" href="/pages/contact.php">Contacto</a></li>
+          <li><a class="anav" href="/index.php">Inicio</a></li>
+          <li><a class="anav" href="/pages/hoddie.php">Hoddies</a></li>
+          <li><a class="anav" href="/pages/sudadera.php">Sudaderas</a></li>
+          <li><a class="anav" href="/pages/cami.php">Camisetas</a></li>
+          <li><a class="anav" href="/pages/contact.php">Contacto</a></li>
         </ul>
     </nav>
 </header>
@@ -124,11 +124,11 @@ function renderProduct($product) {
 <footer>
     <nav id="footer-nav">
         <ul class="nav-links">
-            <li><a class="anav" href="./index.php">Inicio</a></li>
-            <li><a class="anav" href="/pages/hoddie.php">Hoddies</a></li>
-            <li><a class="anav" href="/pages/sudadera.php">Sudaderas</a></li>
-            <li><a class="anav" href="/pages/cami.php">Camisetas</a></li>
-            <li><a class="anav" href="/pages/contact.php">Contacto</a></li>
+          <li><a class="anav" href="/index.php">Inicio</a></li>
+          <li><a class="anav" href="/pages/hoddie.php">Hoddies</a></li>
+          <li><a class="anav" href="/pages/sudadera.php">Sudaderas</a></li>
+          <li><a class="anav" href="/pages/cami.php">Camisetas</a></li>
+          <li><a class="anav" href="/pages/contact.php">Contacto</a></li>
         </ul>
     </nav>
     <p>Copyright &#169; 2024 Juan Manuel López. All Rights Reserved.</p>
