@@ -46,7 +46,6 @@ function renderProduct($product) {
     <title>JWEAR - Inicio</title>
     <link rel="stylesheet" href="/CSS/style.css">
     <link rel="stylesheet" href="/CSS/mediaqueries.css">
-    <link rel="shortcut icon" href="<?php echo $images_otherimg[0]['IMAGEN']; ?>" type="image/x-icon">
 </head>
 <body>
 <header>

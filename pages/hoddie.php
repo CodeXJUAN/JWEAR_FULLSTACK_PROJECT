@@ -1,43 +1,3 @@
-<?php
-include('db.php');
-
-// Consultar los datos de las imágenes
-$sql_hoddie = "SELECT * FROM HODDIES";
-$sql_otherimg = "SELECT * FROM OTHER_IMAGES";
-
-$result_hoddie = $conn->query($sql_hoddie);
-$result_otherimg = $conn->query($sql_otherimg);
-
-$images_hoddie = $result_hoddie->fetch_all(MYSQLI_ASSOC);
-$images_otherimg = $result_otherimg->fetch_all(MYSQLI_ASSOC);
-
-$conn->close();
-
-/**
- * Función para renderizar un producto
- */
-
-function renderProduct($product) {
-    return '
-        <td>
-            <div class="divprod">
-                <img class="imgprod" src=" '. $product['IMAGEN_FRONT'] .'">
-                <img class="imgprod" src=" '. $product['IMAGEN_BACK'] .'">
-                <hr>
-                <div class="h2p">
-                    <div>
-                        <p class="section__text__p3">' . $product['NOMBRE_PROD'] . '</p>
-                        <p class="section__text__p4">' . $product['COLOR'] . ' - ' . $product['PRECIO'] . '€</p>
-                    </div>
-                    <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                </div>
-            </div>
-        </td>
-    ';
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -70,15 +30,184 @@ function renderProduct($product) {
     </div>    
     <section id="sectprod">
         <table>
-        <?php
-            for ($i = 1; $i <= 6; $i += 3) {
-                echo '<tr>';
-                for ($j = 0; $j < 3; $j++) {
-                    echo renderProduct($images_hoddies[$i + $j]);
-                }
-                echo '</tr>';
-            }
-        ?>
+            <tr>
+                <td>
+                    <div class="divprod">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/13.jpg">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/14.jpg">
+                        <hr>
+                        <div class="h2p">
+                            <div>
+                                <p class="section__text__p3">Hoddie</p>
+                                <p class="section__text__p4">Negro - 49,99€</p>
+                            </div>
+                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="divprod">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/azul (5).jpg">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/azul (6).jpg">
+                        <hr>
+                        <div class="h2p">
+                            <div>
+                                <p class="section__text__p3">Hoddie</p>
+                                <p class="section__text__p4">Azul - 49,99€</p>
+                            </div>
+                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="divprod">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/19.jpg">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/20.jpg">
+                        <hr>
+                        <div class="h2p">
+                            <div>
+                                <p class="section__text__p3">Hoddie</p>
+                                <p class="section__text__p4">Marrón- 49,99€</p>
+                            </div>
+                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="divprod">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/42.jpg">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/43.jpg">
+                        <hr>
+                        <div class="h2p">
+                            <div>
+                                <p class="section__text__p3">Hoddie</p>
+                                <p class="section__text__p4">Negro 2 - 49,99€</p>
+                            </div>
+                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="divprod">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/beige (4).jpg">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/beige (3).jpg">
+                        <hr>
+                        <div class="h2p">
+                            <div>
+                                <p class="section__text__p3">Hoddie</p>
+                                <p class="section__text__p4">Beige - 49,99€</p>
+                            </div>
+                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="divprod">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/beige2 (2).jpg"/>
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/beige2.jpg">
+                        <hr>
+                        <div class="h2p">
+                            <div>
+                                <p class="section__text__p3">Hoddie (DROP)</p>
+                                <p class="section__text__p4">Naranja - 49,99€</p>
+                            </div>
+                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
+                        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="divprod">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/23.jpg">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/24.jpg">
+                        <hr>
+                        <div class="h2p">
+                            <div>
+                                <p class="section__text__p3">Hoddie</p>
+                                <p class="section__text__p4">Verde Oliva - 49,99€</p>
+                            </div>
+                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="divprod">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/25.jpg">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/26.jpg">
+                        <hr>
+                        <div class="h2p">
+                            <div>
+                                <p class="section__text__p3">Hoddie</p>
+                                <p class="section__text__p4">Verde - 49,99€</p>
+                            </div>
+                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="divprod">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/11.jpg">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/12.jpg">
+                        <hr>
+                        <div class="h2p">
+                            <div>
+                                <p class="section__text__p3">Hoddie</p>
+                                <p class="section__text__p4">Blanco - 49,99€</p>
+                            </div>
+                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+
+            </tr>
+            <tr>
+                <td>
+                    <div class="divprod">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/29.jpg">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/30.jpg">
+                        <hr>
+                        <div class="h2p">
+                            <div>
+                                <p class="section__text__p3">Hoddie</p>
+                                <p class="section__text__p4"> Beige 2 - 49,99€</p>
+                            </div>
+                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="divprod">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/negro (1).jpg">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/negro (2).jpg">
+                        <hr>
+                        <div class="h2p">
+                            <div>
+                                <p class="section__text__p3">Hoddie (DROP)</p>
+                                <p class="section__text__p4">Negro 3 - 59,99€</p>
+                            </div>
+                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="divprod">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/27.jpg">
+                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/HODDIES/28.jpg">
+                        <hr>
+                        <div class="h2p">
+                            <div>
+                                <p class="section__text__p3">Hoddie</p>
+                                <p class="section__text__p4">Negro 4 - 49,99€</p>
+                            </div>
+                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
         </table>
     </section>
     <footer>
