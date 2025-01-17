@@ -94,7 +94,7 @@ function renderProduct($product) {
     <table>
         <?php
         for ($i = 7; $i <= 12; $i += 3) {
-            echo '<tr>';
+            echo '<td>';
             for ($j = 0; $j < 3; $j++) {
                 echo renderProduct($images_home[$i + $j]);
             }
