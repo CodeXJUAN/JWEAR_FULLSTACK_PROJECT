@@ -2,7 +2,8 @@
 include('../db.php');
 
 // Consultar los datos de las imágenes
-$sql_tshirts = "SELECT * FROM OTHER_IMAGES";
+$sql_tshirts = "SELECT * FROM TSHIRTS";
+$sql_otherimg = "SELECT * FROM OTHER_IMAGES";
 
 $result_tshirts = $conn->query($sql_tshirts);
 $result_otherimg = $conn->query($sql_otherimg);
