@@ -88,13 +88,13 @@ function renderProduct($product) {
     </table>
 </section>
 
-<section id="colecionprinc">
+<section id="coleccionprinc">
     <p class="section__text__p1">Nuestros...</p>
     <h1 class="title">Best Sellers</h1>
     <table>
         <?php
         for ($i = 7; $i <= 12; $i += 3) {
-            echo '<td>';
+            echo '<tr>';
             for ($j = 0; $j < 3; $j++) {
                 echo renderProduct($images_home[$i + $j]);
             }
