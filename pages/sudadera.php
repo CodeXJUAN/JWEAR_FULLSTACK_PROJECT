@@ -1,3 +1,42 @@
+<?php
+include('../db.php');
+
+// Consultar los datos de las imágenes
+$sql_sweaters = "SELECT * FROM SWEATERS";
+$sql_otherimg = "SELECT * FROM OTHER_IMAGES";
+
+$result_sweaters = $conn->query($sql_sweaters);
+$result_otherimg = $conn->query($sql_otherimg);
+
+$images_sweaters = $result_sweaters->fetch_all(MYSQLI_ASSOC);
+$images_otherimg = $result_otherimg->fetch_all(MYSQLI_ASSOC);
+
+$conn->close();
+
+/**
+ * Función para renderizar un producto
+ */
+function renderProduct2($product1) {
+    return '       
+            <td>
+                <div class="divprod">
+                    <img class="imgprod" src="' . $product1['IMAGEN_FRONT'] . '">
+                    <img class="imgprod" src="' . $product1['IMAGEN_BACK'] . '">
+                    <hr>
+                    <div class="h2p">
+                        <div>
+                            <p class="section__text__p3">' . $product1['NOMBRE_PROD'] . '</p>
+                            <p class="section__text__p4">' . $product1['COLOR'] . ' - ' . $product1['PRECIO'] . '€</p>
+                        </div>
+                        <a  href="./comprar.php" class="comprarya"><img src="../assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
+                    </div>
+                </div>
+            </td>
+    ';
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,12 +46,12 @@
         <title>JWEAR - Sudaderas</title>
         <link rel="stylesheet" href="/CSS/style.css" />
         <link rel="stylesheet" href="/CSS/mediaqueries.css" />
-        <link rel="shortcut icon" href="/assets/LOGOS/1.png" type="image/x-icon">
+        <link rel="shortcut icon" href="<?php echo $images_otherimg[0]['IMAGEN']; ?>" type="image/x-icon">
     </head>
     <body>
     <header>
         <nav id="desktop-nav">
-            <img class="logo" src="./assets/LOGOS/logo-svg.svg" />
+            <img class="logo" src="<?php echo $images_otherimg[0]['IMAGEN']; ?>" />
             <div>
                 <ul class="nav-links">
                     <li><a class="anav" href="/index.php">Inicio</a></li>
@@ -29,182 +68,15 @@
     </div>    
     <section id="sectprod">
         <table>
-            <tr>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/azul (1).jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/azul (2).jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Sudadera</p>
-                                <p class="section__text__p4">Azul 1 - 39,99€</p>
-                            </div>
-                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/azul (5).jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/azul (6).jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Sudadera</p>
-                                <p class="section__text__p4">Azul 2 - 39,99€</p>
-                            </div>
-                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/verde (1).jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/verde (2).jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Sudadera</p>
-                                <p class="section__text__p4">Verde - 39,99€</p>
-                            </div>
-                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/3.jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/4.jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Sudadera</p>
-                                <p class="section__text__p4">Azul 3 - 39,99€</p>
-                            </div>
-                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/beige (3).jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/beige (4).jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Sudadera</p>
-                                <p class="section__text__p4">Beige - 39,99€</p>
-                            </div>
-                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/gris (1).jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/gris (2).jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Sudadera</p>
-                                <p class="section__text__p4">Gris - 49,99€</p>
-                            </div>
-                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/15.jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/16.jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Sudadera</p>
-                                <p class="section__text__p4">Negro - 39,99€</p>
-                            </div>
-                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/31.jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/32.jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Sudadera</p>
-                                <p class="section__text__p4">Verde Oliva - 39,99€</p>
-                            </div>
-                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/turquesa (1).jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/turquesa (2).jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Sudadera</p>
-                                <p class="section__text__p4">Turquesa - 49,99€</p>
-                            </div>
-                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/33.jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/34.jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Sudadera</p>
-                                <p class="section__text__p4">Negro 2 - 39,99€</p>
-                            </div>
-                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/19.jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/20.jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Sudadera</p>
-                                <p class="section__text__p4">Verde 2 - 39,99€</p>
-                            </div>
-                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/17.jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/SUDADERAS/18.jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Sudadera</p>
-                                <p class="section__text__p4">Verde 3 - 39,99€</p>
-                            </div>
-                            <a  href="./comprar.html" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+        <?php
+                for ($i = 1; $i <= 9; $i += 3) {
+                    echo '<tr>';
+                    for ($j = 0; $j < 3; $j++) {
+                        echo renderProduct2($images_sweaters[$i + $j]);
+                    }
+                    echo '</tr>';
+                }
+            ?> 
         </table>
     </section>
     <footer>

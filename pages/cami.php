@@ -1,3 +1,41 @@
+<?php
+include('../db.php');
+
+// Consultar los datos de las imágenes
+$sql_tshirts = "SELECT * FROM OTHER_IMAGES";
+
+$result_tshirts = $conn->query($sql_tshirts);
+$result_otherimg = $conn->query($sql_otherimg);
+
+$images_tshirts = $result_tshirts->fetch_all(MYSQLI_ASSOC);
+$images_otherimg = $result_otherimg->fetch_all(MYSQLI_ASSOC);
+
+$conn->close();
+
+/**
+ * Función para renderizar un producto
+ */
+function renderProduct2($product2) {
+    return '       
+            <td>
+                <div class="divprod">
+                    <img class="imgprod" src="' . $product2['IMAGEN_FRONT'] . '">
+                    <img class="imgprod" src="' . $product2['IMAGEN_BACK'] . '">
+                    <hr>
+                    <div class="h2p">
+                        <div>
+                            <p class="section__text__p3">' . $product2['NOMBRE_PROD'] . '</p>
+                            <p class="section__text__p4">' . $product2['COLOR'] . ' - ' . $product2['PRECIO'] . '€</p>
+                        </div>
+                        <a  href="./comprar.php" class="comprarya"><img src="../assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
+                    </div>
+                </div>
+            </td>
+    ';
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,12 +45,12 @@
         <title>JWEAR - Camisetas</title>
         <link rel="stylesheet" href="/CSS/style.css" />
         <link rel="stylesheet" href="/CSS/mediaqueries.css" />
-        <link rel="shortcut icon" href="/assets/LOGOS/1.png" type="image/x-icon">
+        <link rel="shortcut icon" href="<?php echo $images_otherimg[0]['IMAGEN']; ?>" type="image/x-icon">
     </head>
     <body>
     <header>
         <nav id="desktop-nav">
-            <img class="logo" src="./assets/LOGOS/logo-svg.svg" />
+            <img class="logo" src="<?php echo $images_otherimg[0]['IMAGEN']; ?>" />
             <div>
                 <ul class="nav-links">
                     <li><a class="anav" href="/index.php">Inicio</a></li>
@@ -29,183 +67,15 @@
     </div>    
     <section id="sectprod">
         <table>
-            <tr>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/7.jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/8.jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Camiseta</p>
-                                <p class="section__text__p4">Azul - 15,99€</p>
-                            </div>
-                            <a  href="./comprar.ejs" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/beige (1).jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/beige (2).jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Camiseta (DROP)</p>
-                                <p class="section__text__p4">Beige - 19,99€</p>
-                            </div>
-                            <a  href="./comprar.ejs" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/beige (3).jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/beige (4).jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Camiseta</p>
-                                <p class="section__text__p4">Beige 1 - 15,99€</p>
-                            </div>
-                            <a  href="./comprar.ejs" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/beige (5).jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/beige (6).jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Camiseta</p>
-                                <p class="section__text__p4">Beige 2 - 15,99€</p>
-                            </div>
-                            <a  href="./comprar.ejs" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/38.jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/39.jpg"/>
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Camiseta</p>
-                                <p class="section__text__p4">Blanco - 15,99€</p>
-                            </div>
-                            <a  href="./comprar.ejs" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/15.jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/16.jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Camiseta</p>
-                                <p class="section__text__p4">Blanco 2 - 15,99€</p>
-                            </div>
-                            <a  href="./comprar.ejs" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/23.jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/24.jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Camiseta</p>
-                                <p class="section__text__p4">Blanco 3 - 15,99€</p>
-                            </div>
-                            <a  href="./comprar.ejs" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/naranja (1).jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/naranja (2).jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Camiseta (DROP) </p>
-                                <p class="section__text__p4">Naranja - 19,99€</p>
-                            </div>
-                            <a  href="./comprar.ejs" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/21.jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/22.jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Camiseta</p>
-                                <p class="section__text__p4">Negro - 15,99€</p>
-                            </div>
-                            <a  href="./comprar.ejs" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/50.jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/51.jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Camiseta</p>
-                                <p class="section__text__p4">Negro 2 - 15,99€</p>
-                            </div>
-                            <a  href="./comprar.ejs" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/52.jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/53.jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Camiseta</p>
-                                <p class="section__text__p4">Negro 3 - 15,99€</p>
-                            </div>
-                            <a  href="./comprar.ejs" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-
-                <td>
-                    <div class="divprod">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/35.jpg">
-                        <img class="imgprod" src="./assets/ROPA/PRODUCTOS/CAMISETAS/36.jpg">
-                        <hr>
-                        <div class="h2p">
-                            <div>
-                                <p class="section__text__p3">Camiseta</p>
-                                <p class="section__text__p4">Negro 4 - 15,99€</p>
-                            </div>
-                            <a  href="./comprar.ejs" class="comprarya"><img src="./assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+        <?php
+                for ($i = 1; $i <= 9; $i += 3) {
+                    echo '<tr>';
+                    for ($j = 0; $j < 3; $j++) {
+                        echo renderProduct2($images_tshirts[$i + $j]);
+                    }
+                    echo '</tr>';
+                }
+            ?>   
         </table>
     </section>
     <footer>
