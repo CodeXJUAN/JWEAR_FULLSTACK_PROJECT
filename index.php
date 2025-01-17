@@ -1,3 +1,21 @@
+<?php
+// Incluir conexión a la base de datos
+include('db.php');
+
+// Consultar los datos de las imágenes
+$sql = "SELECT * FROM OTHER_IMAGES WHERE NOMBRE_IMG = 'LOGO'";
+$result = $conn->query($sql);
+$logo = $result->fetch_assoc();
+
+$sql_home = "SELECT * FROM HOME";
+$sql_otherimg = "SELECT * FROM OTHER_IMAGES";
+
+$result_home = $conn->query($sql_home);
+$result_otherimg = $conn->query($sql_otherimg);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
