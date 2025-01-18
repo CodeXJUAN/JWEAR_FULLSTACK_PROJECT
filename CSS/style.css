@@ -62,6 +62,19 @@ nav {
   margin-top: 3vh;
 }
 
+.nav_img{
+  width: 2vw;
+}
+
+.nav_buttons , .nav_usu {
+  margin: 1vw;
+}
+
+.nav_buttons{
+  border: none;
+  background-color: white;
+}
+
 /* SECTIONS */
 
 section {

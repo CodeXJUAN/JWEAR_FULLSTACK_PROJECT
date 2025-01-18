@@ -35,10 +35,15 @@ $conn->close();
                     <li><a class="anav" href="/pages/contact.php">Contacto</a></li>
                 </ul>
             </div>
+            <div>
+                <a href="" class="nav_usu"><img class="nav_img" src="../assets/usuario.png"></a>
+                <button class="nav_buttons"><img class="nav_img" src="../assets/buscar.png"></button>
+                <button class="nav_buttons"><img class="nav_img" src="../assets/bolsa-de-la-compra.png"></button>
+            </div>
         </nav>    
     </header>   
     <main>
-        <section>
+        <section id="section_comprar">
             
         </section>
     </main>
@@ -56,6 +61,6 @@ $conn->close();
         </nav>  
         <p>Copyright &#169; 2024 Juan Manuel López. All Rights Reserved.</p>
     </footer>
-    <script src="/JS/app.js"></script>
+    <script src="../JS/app.js"></script>
     </body>
 </html>

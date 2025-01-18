@@ -49,89 +49,97 @@ function renderProduct($product) {
     <link rel="stylesheet" href="/CSS/mediaqueries.css">
 </head>
 <body>
-<header>
-    <nav id="desktop-nav">
-        <img src="<?php echo $images_otherimg[0]['IMAGEN']; ?>" class="logo" />
-        <ul class="nav-links">
-          <li><a class="anav" href="/index.php">Inicio</a></li>
-          <li><a class="anav" href="/pages/hoddie.php">Hoddies</a></li>
-          <li><a class="anav" href="/pages/sudadera.php">Sudaderas</a></li>
-          <li><a class="anav" href="/pages/cami.php">Camisetas</a></li>
-          <li><a class="anav" href="/pages/contact.php">Contacto</a></li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <nav id="desktop-nav">
+            <img class="logo" src="<?php echo $images_otherimg[0]['IMAGEN']; ?>" />
+            <div>
+                <ul class="nav-links">
+                    <li><a class="anav" href="/index.php">Inicio</a></li>
+                    <li><a class="anav" href="/pages/hoddie.php">Hoddies</a></li>
+                    <li><a class="anav" href="/pages/sudadera.php">Sudaderas</a></li>
+                    <li><a class="anav" href="/pages/cami.php">Camisetas</a></li>
+                    <li><a class="anav" href="/pages/contact.php">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <a href="" class="nav_usu"><img class="nav_img" src="../assets/usuario.png"></a>
+                <button class="nav_buttons"><img class="nav_img" src="../assets/buscar.png"></button>
+                <button class="nav_buttons"><img class="nav_img" src="../assets/bolsa-de-la-compra.png"></button>
+            </div>
+        </nav>  
+    </header>
 
-<section id="home">
-    <div class="section__pic-container">
-        <img src="<?php echo $images_otherimg[1]['IMAGEN']; ?>" class="foto1" />
-    </div>
-    <div class="section__text">
-        <h1 class="title">JWEAR</h1>
-        <p class="section__text__p2">Un estilo por delante, puede que otro por detrás.</p>
-    </div>
-</section>
+    <section id="home">
+        <div class="section__pic-container">
+            <img src="<?php echo $images_otherimg[1]['IMAGEN']; ?>" class="foto1" />
+        </div>
+        <div class="section__text">
+            <h1 class="title">JWEAR</h1>
+            <p class="section__text__p2">Un estilo por delante, puede que otro por detrás.</p>
+        </div>
+    </section>
 
-<section id="dropespecial">
-    <p class="section__text__p1">Conoce nuestro...</p>
-    <h1 class="title">Drop Especial</h1>
-    <table>
-        <?php
-        for ($i = 1; $i <= 6; $i += 3) {
-            echo '<tr>';
-            for ($j = 0; $j < 3; $j++) {
-                echo renderProduct($images_home[$i + $j]);
+    <section id="dropespecial">
+        <p class="section__text__p1">Conoce nuestro...</p>
+        <h1 class="title">Drop Especial</h1>
+        <table>
+            <?php
+            for ($i = 1; $i <= 6; $i += 3) {
+                echo '<tr>';
+                for ($j = 0; $j < 3; $j++) {
+                    echo renderProduct($images_home[$i + $j]);
+                }
+                echo '</tr>';
             }
-            echo '</tr>';
-        }
-        ?>
-    </table>
-</section>
+            ?>
+        </table>
+    </section>
 
-<section id="coleccionprinc">
-    <p class="section__text__p1">Nuestros...</p>
-    <h1 class="title">Best Sellers</h1>
-    <table>
-        <?php
-        for ($i = 7; $i <= 12; $i += 3) {
-            echo '<tr>';
-            for ($j = 0; $j < 3; $j++) {
-                echo renderProduct($images_home[$i + $j]);
+    <section id="coleccionprinc">
+        <p class="section__text__p1">Nuestros...</p>
+        <h1 class="title">Best Sellers</h1>
+        <table>
+            <?php
+            for ($i = 7; $i <= 12; $i += 3) {
+                echo '<tr>';
+                for ($j = 0; $j < 3; $j++) {
+                    echo renderProduct($images_home[$i + $j]);
+                }
+                echo '</tr>';
             }
-            echo '</tr>';
-        }
-        ?>
-    </table>
-</section>
+            ?>
+        </table>
+    </section>
 
-<section id="categorias">
-    <p class="section__text__p1">Visita y explora nuestras...</p>
-    <h1 class="title">Categorías</h1>
-    <div class="carrusel">
-        <?php
-        $categories = ['HODDIES', 'SUDADERAS', 'CAMISETAS'];
-        foreach (array_slice($images_otherimg, 3, 3) as $index => $image) {
-            echo '<a class="acate" href="./' . strtolower($categories[$index]) . '.html">';
-            echo '<img src="' . $image['IMAGEN'] . '" />';
-            echo '<p>' . $categories[$index] . '</p>';
-            echo '</a>';
-        }
-        ?>
-    </div>
-    <hr/>
-</section>
+    <section id="categorias">
+        <p class="section__text__p1">Visita y explora nuestras...</p>
+        <h1 class="title">Categorías</h1>
+        <div class="carrusel">
+            <?php
+            $categories = ['HODDIES', 'SUDADERAS', 'CAMISETAS'];
+            foreach (array_slice($images_otherimg, 3, 3) as $index => $image) {
+                echo '<a class="acate" href="./' . strtolower($categories[$index]) . '.html">';
+                echo '<img src="' . $image['IMAGEN'] . '" />';
+                echo '<p>' . $categories[$index] . '</p>';
+                echo '</a>';
+            }
+            ?>
+        </div>
+        <hr/>
+    </section>
 
-<footer>
-    <nav id="footer-nav">
-        <ul class="nav-links">
-          <li><a class="anav" href="/index.php">Inicio</a></li>
-          <li><a class="anav" href="/pages/hoddie.php">Hoddies</a></li>
-          <li><a class="anav" href="/pages/sudadera.php">Sudaderas</a></li>
-          <li><a class="anav" href="/pages/cami.php">Camisetas</a></li>
-          <li><a class="anav" href="/pages/contact.php">Contacto</a></li>
-        </ul>
-    </nav>
-    <p>Copyright &#169; 2024 Juan Manuel López. All Rights Reserved.</p>
-</footer>
+    <footer>
+        <nav id="footer-nav">
+            <ul class="nav-links">
+            <li><a class="anav" href="/index.php">Inicio</a></li>
+            <li><a class="anav" href="/pages/hoddie.php">Hoddies</a></li>
+            <li><a class="anav" href="/pages/sudadera.php">Sudaderas</a></li>
+            <li><a class="anav" href="/pages/cami.php">Camisetas</a></li>
+            <li><a class="anav" href="/pages/contact.php">Contacto</a></li>
+            </ul>
+        </nav>
+        <p>Copyright &#169; 2024 Juan Manuel López. All Rights Reserved.</p>
+    </footer>
+    <script src="./JS/app.js"></script>
 </body>
 </html>
