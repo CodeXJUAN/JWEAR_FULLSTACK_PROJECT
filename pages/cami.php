@@ -19,18 +19,19 @@ $conn->close();
 function renderProduct2($product2) {
     return '       
             <td>
-                <div class="divprod">
-                    <img class="imgprod" src="' . $product2['IMAGEN_FRONT'] . '">
-                    <img class="imgprod" src="' . $product2['IMAGEN_BACK'] . '">
-                    <hr>
-                    <div class="h2p">
-                        <div>
-                            <p class="section__text__p3">' . $product2['NOMBRE_PROD'] . '</p>
-                            <p class="section__text__p4">' . $product2['COLOR'] . ' - ' . $product2['PRECIO'] . '€</p>
+                <a href="./comprar.php">
+                    <div class="divprod">
+                        <img class="imgprod" src="' . $product2['IMAGEN_FRONT'] . '">
+                        <img class="imgprod" src="' . $product2['IMAGEN_BACK'] . '">
+                        <hr>
+                        <div class="h2p">
+                            <div>
+                                <p class="section__text__p3">' . $product2['NOMBRE_PROD'] . '</p>
+                                <p class="section__text__p4">' . $product2['COLOR'] . ' - ' . $product2['PRECIO'] . '€</p>
+                            </div>
                         </div>
-                        <a  href="./comprar.php" class="comprarya"><img src="../assets/carrito-de-compras.png" class="carrito">Comprar ya</a>
                     </div>
-                </div>
+                <a/>
             </td>
     ';
 }

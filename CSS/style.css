@@ -75,7 +75,7 @@ section {
   display: flex;
 }
 
-/* PROFILE SECTION */
+/* HOME SECTION */
 
 #home {
   display: flex;
@@ -224,6 +224,10 @@ section {
   height: 50vh; 
   border-radius: 5%;
   border: 0.1vh solid black;
+}
+
+table tr td a {
+  text-decoration: none;
 }
 
 /*CATEGORIAS SECTION*/
