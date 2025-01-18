@@ -36,7 +36,7 @@ $conn->close();
                 </ul>
             </div>
             <div>
-                <a href="./pages/auth/signup.php" class="nav_usu"><img class="nav_img" src="../assets/usuario.png"></a>
+                <a href="../pages/auth/signup.php" class="nav_usu"><img class="nav_img" src="../assets/usuario.png"></a>
                 <button class="nav_buttons"><img class="nav_img" src="../assets/buscar.png"></button>
                 <button class="nav_buttons"><img class="nav_img" src="../assets/bolsa-de-la-compra.png"></button>
             </div>
@@ -48,7 +48,7 @@ $conn->close();
         <h1 class="title">Contacto</h1>
         <aside id="sectform">
             <div>
-                <form action="" method="post">
+                <form id="contactform" action="" method="post">
                     <table>
                         <tr>
                             <td><label for="nom1">Nombre</label></td>

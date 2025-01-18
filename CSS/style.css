@@ -323,12 +323,12 @@ hr {
 }
 
 
-form , #sectform table {
+#contactform , #sectform table {
   width: 40vw;
   height: 60vh;
 }
 
-form {
+#contactform {
   padding: 2vh;
   background-color: rgb(255, 255, 255);
   border-radius: 5%;
@@ -388,6 +388,129 @@ form {
   width: 14vw;
   height: 25vh;
   margin: 2vh;
+}
+
+/* AUTH SECTION */
+
+#auth {
+  height: 80vh;
+}
+
+#auth div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.div_signin {
+  height: 60vh;
+}
+
+.div_login {
+  height: 50vh;
+}
+
+.div_signin , .div_login {
+  width: 20vw;
+  border-radius: 5%;
+  padding: 5vh;
+  margin-top: 4vh;
+  box-shadow: -0.4vh 0.6vh 0.6vh 0.6vh rgb(0, 0, 0, 0.3);
+
+}
+
+#form_signin {
+  align-items: center;
+  margin-top: 4vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputBox {
+  position: relative;
+}
+
+.inputBox input {
+  padding: 15px 20px;
+  outline: none;
+  background: transparent;
+  border-radius: 5px;
+  color: #212121;
+  border: 1px solid#212121;
+  font-size: 1em;
+  margin: 2vh;
+}
+
+.inputBox span {
+  position: absolute;
+  left: 0;
+  font-size: 0.7em;
+  transform: translateX(1.5vw) translateY(-3vh);
+  padding: 0 6px 1px 5px;
+  border-radius: 2px;
+  background: #e8e8e8;
+  letter-spacing: 1px;
+  border: 1px solid #212121;
+  color: #212121;
+}
+
+.alogin {
+  margin-top: 2vh;
+  color: black;
+  text-decoration: none;
+  text-decoration-color: white;
+}
+
+.alogin:hover {
+  color: grey;
+  text-decoration: underline;
+  text-underline-offset: 1vh;
+  text-decoration-color: rgb(181, 181, 181);
+}
+
+/* From Uiverse.io by mrhyddenn */ 
+.button_signup {
+  background: #fff;
+  border: none;
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  width: 120px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: skew(-21deg);
+  box-shadow: -0.4vh 0.6vh 0.6vh 0.6vh rgb(0, 0, 0, 0.3);
+  margin: 20px;
+}
+
+.button_signup span {
+  display: inline-block;
+  transform: skew(21deg);
+}
+
+.button_signup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  left: 0;
+  background: rgb(20, 20, 20);
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.5s;
+}
+
+.button_signup:hover {
+  color: #fff;
+}
+
+.button_signup:hover::before {
+  left: 0;
+  right: 0;
+  opacity: 1;
 }
 
 
