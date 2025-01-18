@@ -75,6 +75,39 @@ nav {
   background-color: white;
 }
 
+
+.search-input {
+  position: absolute;
+  top: 8vw;
+  right: 2vw;
+  width: 15%;
+  height: 4vh;
+  padding: 1vh;
+  transition: .2s linear;
+  border: 0.2vh solid black;
+  font-size: 1.4vh;
+  text-transform: uppercase;
+  letter-spacing: 0.2vw;
+}
+
+.search-input:focus {
+  outline: none;
+  border: 0.05vh solid black;
+  box-shadow: -0.5vh -0.5vh 0vh black;
+}
+
+
+@keyframes anim {
+  0%,
+  100% {
+    transform: translateY(calc(-50% - 5px)) scale(1);
+  }
+
+  50% {
+    transform: translateY(calc(-50% - 5px)) scale(1.1);
+  }
+}
+
 /* SECTIONS */
 
 section {
