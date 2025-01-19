@@ -5,30 +5,43 @@ include('../../db.php');
 $sql_otherimg = "SELECT * FROM OTHER_IMAGES";
 $result_otherimg = $conn->query($sql_otherimg);
 $images_otherimg = $result_otherimg->fetch_all(MYSQLI_ASSOC);
-$conn->close();
 
-if (isset($_POST['submit'])) {
-    $name = $_POST['NOMBRE'];
-    $surname = $_POST['APELLIDO'];
-    $email = $_POST['EMAIL'];
-    $password = $_POST['CONTRASEÑA'];
+if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = htmlspecialchars($_POST['NOMBRE']);
+    $surname = htmlspecialchars($_POST['APELLIDO']);
+    $email = htmlspecialchars($_POST['EMAIL']);
+    $password = password_hash($_POST['CONTRASEÑA'], PASSWORD_DEFAULT);
 
-    $verify_query = mysqli_query($conn, "SELECT EMAIL FROM USUARIOS WHERE EMAIL='$email'");
+    // Verificar si el email ya existe
+    $stmt = $conn->prepare("SELECT EMAIL FROM USUARIOS WHERE EMAIL = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $stmt->store_result();
 
-    if (mysqli_num_rows($verify_query) != 0) {
+    if ($stmt->num_rows > 0) {
         echo "<div class='message'>
-                <p>This email is used, Try another One Please!</p>
+                <p>This email is already in use. Try another one!</p>
               </div> <br>";
         echo "<a href='javascript:self.history.back()'><button class='btn'>Go Back</button></a>";
     } else {
-        mysqli_query($conn, "INSERT INTO users(Username, Email, Age, Password) VALUES('$name', '$surname', '$email', '$password')") or die("Error Occurred");
+        // Insertar datos del usuario
+        $stmt = $conn->prepare("INSERT INTO USUARIOS (NOMBRE, APELLIDO, EMAIL, CONTRASEÑA) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $name, $surname, $email, $password);
 
-        echo "<div class='message'>
-                <p>Registration successfully!</p>
-              </div> <br>";
-        echo "<a href='index.php'><button class='btn'>Login Now</button></a>";
+        if ($stmt->execute()) {
+            header("Location: succes_signup.php");
+            exit();
+        } else {
+            echo "<div class='message'>
+                    <p>Error occurred: " . htmlspecialchars($stmt->error) . "</p>
+                  </div> <br>";
+        }
     }
+
+    $stmt->close();
+    $conn->close();
 } else {
+    error_log("Invalid access");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,22 +81,22 @@ if (isset($_POST['submit'])) {
                     <h2>Sign in</h2>
                     <form id="form_signin" method="post" action="">
                         <div class="inputBox">
-                            <input placeholder="Write here..." type="text" required="">
+                            <input placeholder="Write here..." type="text" required="" name="NOMBRE">
                             <span>Nombre :</span>
                         </div>
                         <div class="inputBox">
-                            <input placeholder="Write here..." type="text" required="">
+                            <input placeholder="Write here..." type="text" required="" name="APELLIDO">
                             <span>Apellido :</span>
                         </div>
                         <div class="inputBox">
-                            <input placeholder="Write here..." type="email" required="">
+                            <input placeholder="Write here..." type="email" required="" name="EMAIL">
                             <span>Correo Electronico:</span>
                         </div>
                         <div class="inputBox">
-                            <input placeholder="Write here..." type="password" required="">
+                            <input placeholder="Write here..." type="password" required="" name="CONTRASEÑA">
                             <span>Contraseña:</span>
                         </div>
-                        <button class="button_signup" type="submit">
+                        <button class="button_signup" type="submit" name="submit">
                             <span>Sign Up</span>
                         </button>
                     </form>

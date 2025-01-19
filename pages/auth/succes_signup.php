@@ -3,13 +3,10 @@ include('../../db.php');
 
 // Consultar los datos de las imágenes
 $sql_otherimg = "SELECT * FROM OTHER_IMAGES";
-
 $result_otherimg = $conn->query($sql_otherimg);
-
 $images_otherimg = $result_otherimg->fetch_all(MYSQLI_ASSOC);
 
 $conn->close();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,39 +32,20 @@ $conn->close();
                 </ul>
             </div>
             <div>
-                <a href="./signup.php" class="nav_usu"><img class="nav_img" src="../../assets/usuario.png"></a>
+                <a href="./login.php" class="nav_usu"><img class="nav_img" src="../../assets/usuario.png"></a>
                 <button class="nav_buttons"><img class="nav_img" src="../../assets/buscar.png"></button>
                 <button class="nav_buttons"><img class="nav_img" src="../../assets/bolsa-de-la-compra.png"></button>
             </div>
         </nav>  
     </header>
-
     <main>
-        <section id="auth">
-            <div>
-                <h1>An actual user in JWEAR?</h1>
-                <div class="div_login">
-                    <h2>Log in</h2>
-                    <form id="form_signin" method="post" action="">
-                        <div class="inputBox">
-                            <input placeholder="Write here..." type="email" required="">
-                            <span>Correo Electronico:</span>
-                        </div>
-                        <div class="inputBox">
-                            <input placeholder="Write here..." type="password" required="">
-                            <span>Contraseña:</span>
-                        </div>
-                        <button class="button_signup" type="submit">
-                            <span>Log In</span>
-                        </button>
-                    </form>
-                    <h3>Already have an acount?</h3>
-                    <a class="alogin" href="./signup.php">Sign In</a>
-                </div>
+        <section id="succes_section">
+            <div class="message_box">
+                <h2>You have signed up succesfully 👏</h2>
+                <a class="alogin" href="./login.php">Log In</a>
             </div>
         </section>
-    </main> 
-
+    </main>
     <footer>
         <nav id="footer-nav">
             <ul class="nav-links">

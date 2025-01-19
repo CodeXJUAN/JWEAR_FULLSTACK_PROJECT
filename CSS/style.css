@@ -513,6 +513,31 @@ hr {
   opacity: 1;
 }
 
+/* SUCCES SECTION */
+
+#succes_section {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message_box {
+  height: 30vh;
+  width: 40vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: -0.4vh 0.6vh 0.6vh 0.6vh rgb(0, 0, 0, 0.3);
+  border-radius: 15px;
+}
+
+
+.message_box h2 {
+  margin-bottom: 4vh;
+}
+
 
 /* FOOTER SECTION */
 
