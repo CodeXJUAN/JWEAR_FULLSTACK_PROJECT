@@ -32,7 +32,6 @@ $conn->close();
                 </ul>
             </div>
             <div>
-                <a href="./login.php" class="nav_usu"><img class="nav_img" src="../../assets/usuario.png"></a>
                 <button class="nav_buttons"><img class="nav_img" src="../../assets/buscar.png"></button>
                 <button class="nav_buttons"><img class="nav_img" src="../../assets/bolsa-de-la-compra.png"></button>
             </div>

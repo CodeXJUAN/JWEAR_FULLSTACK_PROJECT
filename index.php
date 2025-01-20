@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('db.php');
 
 // Consultar los datos de las imágenes
@@ -38,6 +39,7 @@ function renderProduct($product) {
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,23 +51,28 @@ function renderProduct($product) {
     <link rel="stylesheet" href="/CSS/mediaqueries.css">
 </head>
 <body>
-    <header>
-        <nav id="desktop-nav">
-            <img class="logo" src="<?php echo $images_otherimg[0]['IMAGEN']; ?>" />
-            <div>
-                <ul class="nav-links">
-                    <li><a class="anav" href="/index.php">Inicio</a></li>
-                    <li><a class="anav" href="/pages/hoddie.php">Hoddies</a></li>
-                    <li><a class="anav" href="/pages/sudadera.php">Sudaderas</a></li>
-                    <li><a class="anav" href="/pages/cami.php">Camisetas</a></li>
-                    <li><a class="anav" href="/pages/contact.php">Contacto</a></li>
-                </ul>
-            </div>
-            <div>
-                <a href="./pages/auth/signup.php" class="nav_usu"><img class="nav_img" src="../assets/usuario.png"></a>
-                <button class="nav_buttons"><img class="nav_img" src="../assets/buscar.png"></button>
-                <button class="nav_buttons"><img class="nav_img" src="../assets/bolsa-de-la-compra.png"></button>
-            </div>
+<header>
+    <nav id="desktop-nav">
+        <img class="logo" src="<?php echo $images_otherimg[0]['IMAGEN']; ?>" />
+        <div>
+            <ul class="nav-links">
+                <li><a class="anav" href="/index.php">Inicio</a></li>
+                <li><a class="anav" href="/pages/hoddie.php">Hoddies</a></li>
+                <li><a class="anav" href="/pages/sudadera.php">Sudaderas</a></li>
+                <li><a class="anav" href="/pages/cami.php">Camisetas</a></li>
+                <li><a class="anav" href="/pages/contact.php">Contacto</a></li>
+            </ul>
+        </div>
+        <div>
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <img class="nav_img" src="./assets/usuario_ini.png" alt="Perfil"></a>
+                <a href="./pages/auth/logout.php" class="nav_usu">Cerrar sesión</a>
+            <?php else: ?>
+                <a href="./pages/auth/login.php" class="nav_usu"><img class="nav_img" src="../assets/usuario.png" alt="Iniciar sesión"></a>
+            <?php endif; ?>
+            <button class="nav_buttons"><img class="nav_img" src="../assets/buscar.png"></button>
+            <button class="nav_buttons"><img class="nav_img" src="../assets/bolsa-de-la-compra.png"></button>
+        </div>
         </nav>  
     </header>
 
