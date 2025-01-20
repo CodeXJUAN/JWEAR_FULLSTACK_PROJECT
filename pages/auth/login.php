@@ -8,8 +8,33 @@ $result_otherimg = $conn->query($sql_otherimg);
 
 $images_otherimg = $result_otherimg->fetch_all(MYSQLI_ASSOC);
 
-$conn->close();
+if(isset($_POST['submit'])){
+    $email = mysqli_real_escape_string($conn, $_POST['EMAIL']);
+    $password = mysqli_real_escape_string($conn, $_POST['CONTRASEÑA']);
 
+    // Usar consultas preparadas para evitar inyecciones SQL
+    $stmt = $conn->prepare("SELECT * FROM USUARIOS WHERE EMAIL = ? AND CONTRASEÑA = ?");
+    $stmt->bind_param("ss", $email, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+    if(is_array($row) && !empty($row)){
+        session_start();
+        $_SESSION['valid'] = $row['EMAIL'];
+        $_SESSION['name'] = $row['NOMBRE'];
+        $_SESSION['surname'] = $row['APELLIDO'];
+        $_SESSION['id'] = $row['ID_USUARIO'];
+    } else {
+        echo "<div class='message'>
+          <p>Wrong Username or Password</p>
+           </div> <br>";
+       echo "<a href='index.php'><button class='btn'>Go Back</button>";
+    }
+    if(isset($_SESSION['valid'])){
+        header("Location: index.php");
+    }
+} else {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,21 +75,22 @@ $conn->close();
                     <h2>Log in</h2>
                     <form id="form_signin" method="post" action="">
                         <div class="inputBox">
-                            <input placeholder="Write here..." type="email" required="">
+                            <input placeholder="Write here..." type="email" required="" name="EMAIL">
                             <span>Correo Electronico:</span>
                         </div>
                         <div class="inputBox">
-                            <input placeholder="Write here..." type="password" required="">
+                            <input placeholder="Write here..." type="password" required="" name="CONTRASEÑA">
                             <span>Contraseña:</span>
                         </div>
-                        <button class="button_signup" type="submit">
+                        <button class="button_signup" type="submit" name="submit">
                             <span>Log In</span>
                         </button>
                     </form>
-                    <h3>Already have an acount?</h3>
+                    <h3>Already have an account?</h3>
                     <a class="alogin" href="./signup.php">Sign In</a>
                 </div>
             </div>
+            <?php } ?>
         </section>
     </main> 
 
