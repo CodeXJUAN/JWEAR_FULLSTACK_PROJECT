@@ -26,13 +26,10 @@ if(isset($_POST['submit'])){
         $_SESSION['surname'] = $row['APELLIDO'];
         $_SESSION['id'] = $row['ID_USUARIO'];
     } else {
-        echo "<div class='message'>
-          <p>Wrong Username or Password</p>
-           </div> <br>";
-       echo "<a href='index.php'><button class='btn'>Go Back</button>";
+            header("Location: wrongusupass.php");
     }
     if(isset($_SESSION['valid'])){
-        header("Location: index.php");
+        header("Location: ../../../../index.php");
     }
 } else {
 ?>

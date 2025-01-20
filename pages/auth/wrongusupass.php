@@ -41,7 +41,7 @@ $conn->close();
     <main>
         <section id="succes_section">
             <div class="message_box">
-                <h2>👏 You have signed up succesfully 👏</h2>
+                <h2> 🙅 Wrong username or password 🙅</h2>
                 <a class="alogin" href="./login.php">Log In</a>
             </div>
         </section>

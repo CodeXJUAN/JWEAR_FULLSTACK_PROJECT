@@ -19,10 +19,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        echo "<div class='message'>
-                <p>This email is already in use. Try another one!</p>
-              </div> <br>";
-        echo "<a href='javascript:self.history.back()'><button class='btn'>Go Back</button></a>";
+        header("Location: ../../alreadyamail.php");
     } else {
         // Insertar datos del usuario
         $stmt = $conn->prepare("INSERT INTO USUARIOS (NOMBRE, APELLIDO, EMAIL, CONTRASEÑA) VALUES (?, ?, ?, ?)");

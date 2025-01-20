@@ -41,8 +41,8 @@ $conn->close();
     <main>
         <section id="succes_section">
             <div class="message_box">
-                <h2>👏 You have signed up succesfully 👏</h2>
-                <a class="alogin" href="./login.php">Log In</a>
+                <h2>❌ This mail is already in use ❌</h2>
+                <a class="alogin" href="./signup.php">Try again</a>
             </div>
         </section>
     </main>
