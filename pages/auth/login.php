@@ -19,14 +19,14 @@ if(isset($_POST['submit'])){
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
 
-    if(is_array($row) && !empty($row)){
+    if($result->num_rows > 0){
         session_start();
         $_SESSION['valid'] = $row['EMAIL'];
         $_SESSION['name'] = $row['NOMBRE'];
         $_SESSION['surname'] = $row['APELLIDO'];
         $_SESSION['id'] = $row['ID_USUARIO'];
     } else {
-            header("Location: wrongusupass.php");
+            header("Location: ../../wrongusupass.php");
     }
     if(isset($_SESSION['valid'])){
         header("Location: ../../../../index.php");
