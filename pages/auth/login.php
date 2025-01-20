@@ -1,5 +1,5 @@
 <?php
-include('/db.php');
+include('../../db.php');
 
 // Consultar los datos de las imágenes
 $sql_otherimg = "SELECT * FROM OTHER_IMAGES";
