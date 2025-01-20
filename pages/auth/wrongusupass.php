@@ -1,5 +1,5 @@
 <?php
-include('../../db.php');
+include('/db.php');
 
 // Consultar los datos de las imágenes
 $sql_otherimg = "SELECT * FROM OTHER_IMAGES";
@@ -41,7 +41,7 @@ $conn->close();
         <section id="succes_section">
             <div class="message_box">
                 <h2> 🙅 Wrong username or password 🙅</h2>
-                <a class="alogin" href="./login.php">Log In</a>
+                <a class="alogin" href="/pages/auth/login.php">Log In</a>
             </div>
         </section>
     </main>

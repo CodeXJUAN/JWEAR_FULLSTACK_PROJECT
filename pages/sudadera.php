@@ -64,14 +64,14 @@ function renderProduct2($product1) {
                 </ul>
             </div>
             <div>
-                <?php if (isset($_SESSION['user_id'])): ?>
-                    <img class="nav_img" src="./assets/usuario_ini.png" alt="Perfil"></a>
-                    <a href="./pages/auth/logout.php" class="nav_usu">Cerrar sesión</a>
+                <?php if (isset($_SESSION['id'])): ?>
+                    <img class="nav_img" src="/assets/usuario_ini.png" alt="Perfil"></a>
+                    <a href="/pages/auth/logout.php" class="nav_usu"><img src="/assets/ingresar.png" alt="Cerrar Sesion"></a>
                 <?php else: ?>
-                    <a href="./pages/auth/login.php" class="nav_usu"><img class="nav_img" src="../assets/usuario.png" alt="Iniciar sesión"></a>
+                    <a href="/pages/auth/login.php" class="nav_usu"><img class="nav_img" src="/assets/usuario.png" alt="Iniciar sesión"></a>
                 <?php endif; ?>
-                <button class="nav_buttons"><img class="nav_img" src="../assets/buscar.png"></button>
-                <button class="nav_buttons"><img class="nav_img" src="../assets/bolsa-de-la-compra.png"></button>
+                <button class="nav_buttons"><img class="nav_img" src="/assets/buscar.png"></button>
+                <button class="nav_buttons"><img class="nav_img" src="/assets/bolsa-de-la-compra.png"></button>
             </div>
         </nav>    
     </header>    

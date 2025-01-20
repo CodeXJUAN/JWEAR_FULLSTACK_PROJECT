@@ -1,5 +1,5 @@
 <?php
-include('../../db.php');
+include('/db.php');
 
 // Consultar los datos de las imágenes
 $sql_otherimg = "SELECT * FROM OTHER_IMAGES";
@@ -21,15 +21,15 @@ if(isset($_POST['submit'])){
 
     if($result->num_rows > 0){
         session_start();
-        $_SESSION['valid'] = $row['EMAIL'];
-        $_SESSION['name'] = $row['NOMBRE'];
-        $_SESSION['surname'] = $row['APELLIDO'];
-        $_SESSION['id'] = $row['ID_USUARIO'];
+        $_SESSION['EMAIL'] = $row['EMAIL'];
+        $_SESSION['NOMBRE'] = $row['NOMBRE'];
+        $_SESSION['APELLIDO'] = $row['APELLIDO'];
+        $_SESSION['ID_USUARIO'] = $row['ID_USUARIO'];
     } else {
-            header("Location: ../../wrongusupass.php");
+            header("Location: /pages/auth/wrongusupass.php");
     }
     if(isset($_SESSION['valid'])){
-        header("Location: ../../../../index.php");
+        header("Location: /index.php");
     }
 } else {
 ?>
