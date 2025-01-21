@@ -26,6 +26,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['NOMBRE'] = $user['NOMBRE'];
         $_SESSION['APELLIDO'] = $user['APELLIDO'];
         $_SESSION['ID_USUARIO'] = $user['ID_USUARIO'];
+        error_log("Login exitoso para el usuario: " . $user['EMAIL'], 0);
         header("Location: /index.php");
         exit();
     } else {

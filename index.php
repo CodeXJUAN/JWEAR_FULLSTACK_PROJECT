@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('db.php');
+include('./db.php');
 
 // Consultar los datos de las imágenes
 $sql_home = "SELECT * FROM HOME";
@@ -62,7 +62,7 @@ function renderProduct($product) {
             </ul>
         </div>
         <div>
-            <?php if (isset($_SESSION['id'])): ?>
+            <?php if (!empty($_SESSION['id']) && is_numeric($_SESSION['id'])): ?>
                 <img class="nav_img" src="/assets/usuario_ini.png" alt="Perfil"></a>
                 <a href="/pages/auth/logout.php" class="nav_usu"><img src="/assets/ingresar.png" alt="Cerrar Sesion"></a>
             <?php else: ?>
