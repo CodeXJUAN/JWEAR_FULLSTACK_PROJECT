@@ -6,13 +6,11 @@ include('../db.php');
 $sql_sweaters = "SELECT * FROM SWEATERS";
 $sql_otherimg = "SELECT * FROM OTHER_IMAGES";
 
-$result_sweaters = $conn->query($sql_sweaters);
-$result_otherimg = $conn->query($sql_otherimg);
+$result_sweaters = $pdo->query($sql_sweaters);
+$result_otherimg = $pdo->query($sql_otherimg);
 
-$images_sweaters = $result_sweaters->fetch_all(MYSQLI_ASSOC);
-$images_otherimg = $result_otherimg->fetch_all(MYSQLI_ASSOC);
-
-$conn->close();
+$images_sweaters = $result_sweaters->fetchAll();
+$images_otherimg = $result_otherimg->fetchAll();
 
 /**
  * Función para renderizar un producto

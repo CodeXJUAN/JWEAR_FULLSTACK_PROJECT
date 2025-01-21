@@ -6,13 +6,11 @@ include('../db.php');
 $sql_tshirts = "SELECT * FROM TSHIRTS";
 $sql_otherimg = "SELECT * FROM OTHER_IMAGES";
 
-$result_tshirts = $conn->query($sql_tshirts);
-$result_otherimg = $conn->query($sql_otherimg);
+$result_tshirts = $pdo->query($sql_tshirts);
+$result_otherimg = $pdo->query($sql_otherimg);
 
-$images_tshirts = $result_tshirts->fetch_all(MYSQLI_ASSOC);
-$images_otherimg = $result_otherimg->fetch_all(MYSQLI_ASSOC);
-
-$conn->close();
+$images_tshirts = $result_tshirts->fetchAll();
+$images_otherimg = $result_otherimg->fetchAll();
 
 /**
  * Función para renderizar un producto

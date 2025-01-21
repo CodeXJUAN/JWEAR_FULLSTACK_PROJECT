@@ -3,43 +3,34 @@ include('../../db.php');
 
 // Consultar los datos de las imágenes
 $sql_otherimg = "SELECT * FROM OTHER_IMAGES";
-$result_otherimg = $conn->query($sql_otherimg);
-$images_otherimg = $result_otherimg->fetch_all(MYSQLI_ASSOC);
+$stmt_otherimg = $pdo->query($sql_otherimg);
+$images_otherimg = $stmt_otherimg->fetchAll();
 
-if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = htmlspecialchars($_POST['NOMBRE']);
     $surname = htmlspecialchars($_POST['APELLIDO']);
     $email = htmlspecialchars($_POST['EMAIL']);
     $password = password_hash($_POST['CONTRASEÑA'], PASSWORD_DEFAULT);
 
     // Verificar si el email ya existe
-    $stmt = $conn->prepare("SELECT EMAIL FROM USUARIOS WHERE EMAIL = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
+    $stmt = $pdo->prepare("SELECT EMAIL FROM USUARIOS WHERE EMAIL = ?");
+    $stmt->execute([$email]);
+    $existingUser = $stmt->fetch();
 
-    if ($stmt->num_rows > 0) {
+    if ($existingUser) {
         header("Location: ../../alreadyamail.php");
     } else {
-        // Insertar datos del usuario
-        $stmt = $conn->prepare("INSERT INTO USUARIOS (NOMBRE, APELLIDO, EMAIL, CONTRASEÑA) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $name, $surname, $email, $password);
-
-        if ($stmt->execute()) {
+        // Insertar el nuevo usuario en la base de datos
+        $stmt = $pdo->prepare("INSERT INTO USUARIOS (NOMBRE, APELLIDO, EMAIL, CONTRASEÑA) VALUES (?, ?, ?, ?)");
+        if ($stmt->execute([$name, $surname, $email, $password])) {
             header("Location: succes_signup.php");
-            exit();
         } else {
             echo "<div class='message'>
-                    <p>Error occurred: " . htmlspecialchars($stmt->error) . "</p>
+                    <p>Error occurred: " . htmlspecialchars($stmt->errorInfo()[2]) . "</p>
                   </div> <br>";
         }
     }
-
-    $stmt->close();
-    $conn->close();
-} else {
-    error_log("Invalid access");
-?>
+}?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,9 +90,6 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
                     <h3>Already have an acount?</h3>
                     <a class="alogin" href="./login.php">Log In</a>
                 </div>
-<?php 
-} 
-?>
             </div>
         </section>
     </main>

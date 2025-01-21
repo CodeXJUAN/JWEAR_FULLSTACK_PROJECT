@@ -6,13 +6,11 @@ include('db.php');
 $sql_home = "SELECT * FROM HOME";
 $sql_otherimg = "SELECT * FROM OTHER_IMAGES";
 
-$result_home = $conn->query($sql_home);
-$result_otherimg = $conn->query($sql_otherimg);
+$stmt_home = $pdo->query($sql_home);
+$stmt_otherimg = $pdo->query($sql_otherimg);
 
-$images_home = $result_home->fetch_all(MYSQLI_ASSOC);
-$images_otherimg = $result_otherimg->fetch_all(MYSQLI_ASSOC);
-
-$conn->close();
+$images_home = $stmt_home->fetchAll();
+$images_otherimg = $stmt_otherimg->fetchAll();
 
     /**
      * Función para renderizar un producto

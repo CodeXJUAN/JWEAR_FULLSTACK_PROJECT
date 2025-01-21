@@ -1,37 +1,38 @@
 <?php
 include('../../db.php');
 
+// Verificar que la conexión a la base de datos se ha establecido correctamente
+if (!isset($pdo)) {
+    die("Error al conectar a la base de datos.");
+}
+
 // Consultar los datos de las imágenes
 $sql_otherimg = "SELECT * FROM OTHER_IMAGES";
+$stmt_otherimg = $pdo->query($sql_otherimg);
+$images_otherimg = $stmt_otherimg->fetchAll();
 
-$result_otherimg = $conn->query($sql_otherimg);
-
-$images_otherimg = $result_otherimg->fetch_all(MYSQLI_ASSOC);
-
-if(isset($_POST['submit'])){
-    $email = mysqli_real_escape_string($conn, $_POST['EMAIL']);
-    $password = mysqli_real_escape_string($conn, $_POST['CONTRASEÑA']);
+if (isset($_POST['submit'])) {
+    $email = htmlspecialchars($_POST['EMAIL']);
+    $password = $_POST['CONTRASEÑA'];
 
     // Usar consultas preparadas para evitar inyecciones SQL
-    $stmt = $conn->prepare("SELECT * FROM USUARIOS WHERE EMAIL = ? AND CONTRASEÑA = ?");
-    $stmt->bind_param("ss", $email, $password);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $row = $result->fetch_assoc();
+    $stmt = $pdo->prepare("SELECT * FROM USUARIOS WHERE EMAIL = ?");
+    $stmt->execute([$email]);
+    $user = $stmt->fetch();
 
-    if($result->num_rows > 0){
+    if ($user && password_verify($password, $user['CONTRASEÑA'])) {
         session_start();
-        $_SESSION['EMAIL'] = $row['EMAIL'];
-        $_SESSION['NOMBRE'] = $row['NOMBRE'];
-        $_SESSION['APELLIDO'] = $row['APELLIDO'];
-        $_SESSION['ID_USUARIO'] = $row['ID_USUARIO'];
-    } else {
-            header("Location: /pages/auth/wrongusupass.php");
-    }
-    if(isset($_SESSION['valid'])){
+        $_SESSION['EMAIL'] = $user['EMAIL'];
+        $_SESSION['NOMBRE'] = $user['NOMBRE'];
+        $_SESSION['APELLIDO'] = $user['APELLIDO'];
+        $_SESSION['ID_USUARIO'] = $user['ID_USUARIO'];
         header("Location: /index.php");
+        exit();
+    } else {
+        header("Location: /pages/auth/wrongusupass.php");
+        exit();
     }
-} else {
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +87,6 @@ if(isset($_POST['submit'])){
                     <a class="alogin" href="./signup.php">Sign In</a>
                 </div>
             </div>
-            <?php } ?>
         </section>
     </main> 
 

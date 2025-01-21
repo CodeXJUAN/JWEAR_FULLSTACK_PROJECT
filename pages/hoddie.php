@@ -6,13 +6,11 @@ include('../db.php');
 $sql_hoddies = "SELECT * FROM HODDIES";
 $sql_otherimg = "SELECT * FROM OTHER_IMAGES";
 
-$result_hoddies = $conn->query($sql_hoddies);
-$result_otherimg = $conn->query($sql_otherimg);
+$result_hoddies = $pdo->query($sql_hoddies);
+$result_otherimg = $pdo->query($sql_otherimg);
 
-$images_hoddies = $result_hoddies->fetch_all(MYSQLI_ASSOC);
-$images_otherimg = $result_otherimg->fetch_all(MYSQLI_ASSOC);
-
-$conn->close();
+$images_hoddies = $result_hoddies->fetchAll();
+$images_otherimg = $result_otherimg->fetchAll();
 
 /**
  * Función para renderizar un producto

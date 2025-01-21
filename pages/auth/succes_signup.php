@@ -3,10 +3,10 @@ include('../../db.php');
 
 // Consultar los datos de las imágenes
 $sql_otherimg = "SELECT * FROM OTHER_IMAGES";
-$result_otherimg = $conn->query($sql_otherimg);
-$images_otherimg = $result_otherimg->fetch_all(MYSQLI_ASSOC);
 
-$conn->close();
+$result_otherimg = $pdo->query($sql_otherimg);
+
+$images_otherimg = $result_otherimg->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
