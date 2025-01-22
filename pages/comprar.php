@@ -48,7 +48,28 @@ $images_otherimg = $result_otherimg->fetchAll();
     </header>   
     <main>
         <section id="section_comprar">
-            
+                    <div class="div_images">
+                        <div class="img_princ">
+                
+                        </div>
+                        <div class="other_products">
+
+                        </div>
+                    </div>
+                    <aside>
+                        <div class="div-nombre_precio">
+
+                        </div>
+                        <div class="div-talla">
+
+                        </div>
+                        <div class="div-buttons">
+
+                        </div>
+                        <div class="div-descripcion">
+
+                        </div>
+                    </aside>
         </section>
     </main>
     <footer>
