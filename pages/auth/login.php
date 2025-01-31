@@ -1,5 +1,6 @@
 <?php
 include('../../db.php');
+session_start();
 
 // Verificar que la conexión a la base de datos se ha establecido correctamente
 if (!isset($pdo)) {
@@ -21,7 +22,6 @@ if (isset($_POST['submit'])) {
     $user = $stmt->fetch();
 
     if ($user && password_verify($password, $user['CONTRASEÑA'])) {
-        session_start();
         $_SESSION['EMAIL'] = $user['EMAIL'];
         $_SESSION['NOMBRE'] = $user['NOMBRE'];
         $_SESSION['APELLIDO'] = $user['APELLIDO'];

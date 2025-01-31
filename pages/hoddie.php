@@ -1,7 +1,6 @@
 <?php
-session_start();
 include('../db.php');
-
+session_start();
 // Consultar los datos de las imágenes
 $sql_hoddies = "SELECT * FROM HODDIES";
 $sql_otherimg = "SELECT * FROM OTHER_IMAGES";
@@ -62,11 +61,11 @@ function renderProduct2($product1) {
                 </ul>
             </div>
             <div>
-                <?php if (isset($_SESSION['id'])): ?>
-                    <img class="nav_img" src="/assets/usuario_ini.png" alt="Perfil"></a>
-                    <a href="/pages/auth/logout.php" class="nav_usu"><img src="/assets/ingresar.png" alt="Cerrar Sesion"></a>
+                <?php if (!empty($_SESSION['ID_USUARIO']) && is_numeric($_SESSION['ID_USUARIO'])): ?>
+                    <a href=""><img class="nav_img" src="/assets/usuario_ini.png" alt="Perfil"></a>
+                    <a href="/pages/auth/logout.php"><img class="nav_img" src="/assets/ingresar.png" alt="Cerrar Sesion"></a>
                 <?php else: ?>
-                    <a href="/pages/auth/login.php" class="nav_usu"><img class="nav_img" src="/assets/usuario.png" alt="Iniciar sesión"></a>
+                    <a href="/pages/auth/login.php"><img class="nav_usu" class="nav_img" src="/assets/usuario.png" alt="Iniciar sesión"></a>
                 <?php endif; ?>
                 <button class="nav_buttons"><img class="nav_img" src="/assets/buscar.png"></button>
                 <button class="nav_buttons"><img class="nav_img" src="/assets/bolsa-de-la-compra.png"></button>

@@ -62,11 +62,11 @@ nav {
   margin-top: 3vh;
 }
 
-.nav_img{
+.nav_img, .nav_usu{
   width: 2vw;
 }
 
-.nav_buttons , .nav_usu {
+.nav_buttons , .nav_usu, .nav_img {
   margin: 1vw;
 }
 
