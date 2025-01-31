@@ -8,7 +8,6 @@ $result_otherimg = $pdo->query($sql_otherimg);
 
 $images_otherimg = $result_otherimg->fetchAll();
 
-$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -62,7 +62,7 @@ function renderProduct($product) {
         </div>
         <div>
             <?php if (!empty($_SESSION['ID_USUARIO']) && is_numeric($_SESSION['ID_USUARIO'])): ?>
-                <a href=""><img class="nav_img" src="/assets/usuario_ini.png" alt="Perfil"></a>
+                <a href="/pages/profile.php"><img class="nav_img" src="/assets/usuario_ini.png" alt="Perfil"></a>
                 <a href="/pages/auth/logout.php"><img class="nav_img" src="/assets/ingresar.png" alt="Cerrar Sesion"></a>
             <?php else: ?>
                 <a href="/pages/auth/login.php"><img class="nav_usu" class="nav_img" src="/assets/usuario.png" alt="Iniciar sesión"></a>
