@@ -62,11 +62,11 @@ nav {
   margin-top: 3vh;
 }
 
-.nav_img, .nav_usu{
+.nav_img {
   width: 2vw;
 }
 
-.nav_buttons , .nav_usu, .nav_img {
+.nav_buttons, .nav_img {
   margin: 1vw;
 }
 
@@ -538,6 +538,28 @@ hr {
   margin-bottom: 4vh;
 }
 
+/* PROFILE SECTION */
+
+.change_passwd {
+  font-size: 3vh;
+  text-align: left;
+  margin-left: 2vw;
+}
+
+.usuimg {
+  width: 3vw;
+  margin-right: 1vw;
+}
+
+.divusu {
+  width: 15vw;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2vw;
+  padding: 4vh;
+  box-shadow: -0.4vh 0.6vh 0.6vh 0.6vh rgb(0, 0, 0, 0.3);
+  border-radius: 1vw;
+}
 
 /* FOOTER SECTION */
 

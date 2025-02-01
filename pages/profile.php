@@ -3,10 +3,13 @@ include('../db.php');
 session_start();
 // Consultar los datos de las imágenes
 $sql_otherimg = "SELECT * FROM OTHER_IMAGES";
+$sql_infousu = "SELECT * FROM USUARIOS";
 
 $result_otherimg = $pdo->query($sql_otherimg);
+$result_infousu = $pdo->query($sql_infousu);
 
 $images_otherimg = $result_otherimg->fetchAll();
+$info_infousu = $result_infousu->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +41,7 @@ $images_otherimg = $result_otherimg->fetchAll();
                     <a href="/pages/profile.php"><img class="nav_img" src="/assets/usuario_ini.png" alt="Perfil"></a>
                     <a href="/pages/auth/logout.php"><img class="nav_img" src="/assets/ingresar.png" alt="Cerrar Sesion"></a>
                 <?php else: ?>
-                    <a href="/pages/auth/login.php"><img class="nav_usu" class="nav_img" src="/assets/usuario.png" alt="Iniciar sesión"></a>
+                    <a href="/pages/auth/login.php"><img class="nav_img" src="/assets/usuario.png" alt="Iniciar sesión"></a>
                 <?php endif; ?>
                 <button class="nav_buttons"><img class="nav_img" src="/assets/buscar.png"></button>
                 <button class="nav_buttons"><img class="nav_img" src="/assets/bolsa-de-la-compra.png"></button>
@@ -46,6 +49,42 @@ $images_otherimg = $result_otherimg->fetchAll();
         </nav>    
     </header>   
     <main>
+        <div>
+            <h1 class="title2">PROFILE</h1>
+        </div> 
+        <div>
+            <div class="divusu">
+                <div>
+                    <img class="usuimg" src="./../assets/usuario_ini.png">
+                </div>
+                <div>
+                    <p><?php echo $info_infousu[0]['NOMBRE']; ?></p>
+                    <p><?php echo $info_infousu[0]['APELLIDO']; ?></p>
+                </div>
+            </div>
+            <div>
+                <input placeholder="<?php echo $info_infousu[0]['EMAIL']; ?>" value="<?php echo $info_infousu[0]['EMAIL']; ?>"></input>
+                <p><?php echo $info_infousu[0]['CONTRASEÑA']; ?></p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <h1 class="change_passwd">CAMBIAR CONTRASEÑA</h1>      
+            </div> 
+            <div>
+                <div>
+                    <label for="oldpasswd">Contraseña Actual</label>
+                    <input type="password" name="oldpasswd" id="">
+                </div>
+                <div>
+                    <label for="newpasswd">Contraseña Nueva</label>
+                    <input type="password" name="newpasswd" id="">
+                </div>
+                <div>
+                    <button>CHANGE</button>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
         <nav>
