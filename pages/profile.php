@@ -62,16 +62,30 @@ $info_infousu = $result_infousu->fetchAll();
                     <p><?php echo $info_infousu[0]['APELLIDO']; ?></p>
                 </div>
             </div>
+        </div>
+        <div>
             <div>
-                <input placeholder="<?php echo $info_infousu[0]['EMAIL']; ?>" value="<?php echo $info_infousu[0]['EMAIL']; ?>"></input>
-                <p><?php echo $info_infousu[0]['CONTRASEÑA']; ?></p>
+                <h1 class="change_passwd">CAMBIAR EMAIL</h1>      
+            </div> 
+            <div class="divusu">
+                <div>
+                    <p>Email Actual</p>
+                    <p><?php echo $info_infousu[0]['EMAIL']; ?></p>
+                </div>
+                <div>
+                    <p>Email Nuevo</p>
+                    <input type="email">
+                </div>
+                <div>
+                    <button>CHANGE</button>
+                </div>
             </div>
         </div>
         <div>
             <div>
                 <h1 class="change_passwd">CAMBIAR CONTRASEÑA</h1>      
             </div> 
-            <div>
+            <div class="divusu">
                 <div>
                     <label for="oldpasswd">Contraseña Actual</label>
                     <input type="password" name="oldpasswd" id="">
