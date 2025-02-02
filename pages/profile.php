@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_profile'])) {
     $nueva_contrasena = $_POST['nueva_contrasena'];
 
     // Validar que la contraseña actual sea correcta
-    if (password_verify($contrasena_actual, $info_usuario['CONTRASENA'])) {
+    if (password_verify($contrasena_actual, $info_usuario['CONTRASEÑA'])) {
         // Actualizar el correo electrónico si se proporciona uno nuevo
         if (!empty($nuevo_email)) {
             $sql_update_email = "UPDATE USUARIOS SET EMAIL = ? WHERE ID_USUARIO = ?";
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_profile'])) {
         // Actualizar la contraseña si se proporciona una nueva
         if (!empty($nueva_contrasena)) {
             $hashed_password = password_hash($nueva_contrasena, PASSWORD_DEFAULT);
-            $sql_update_password = "UPDATE USUARIOS SET CONTRASENA = ? WHERE ID_USUARIO = ?";
+            $sql_update_password = "UPDATE USUARIOS SET CONTRASEÑA = ? WHERE ID_USUARIO = ?";
             $stmt_update_password = $pdo->prepare($sql_update_password);
             $stmt_update_password->execute([$hashed_password, $id_usuario]);
         }
